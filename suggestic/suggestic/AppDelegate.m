@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  suggestic
 //
-//  Created by Alebrije on 21/08/14.
+//  Created by Elias on 21/08/14.
 //  Copyright (c) 2014 Kokonut Studio. All rights reserved.
 //
 
@@ -13,6 +13,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.GestureDetect = NO;
+	for (NSString *familyName in [UIFont familyNames]) {
+        for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
+            NSLog(@"%@", fontName);
+        }
+    }
     return YES;
 }
 							
