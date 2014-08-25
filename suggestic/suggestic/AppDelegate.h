@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, retain) dragCell *CellFrame;
+@property (nonatomic, retain) UIImage *cellImage;
 @property (nonatomic) BOOL GestureDetect;
 
 @end

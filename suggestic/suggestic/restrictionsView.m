@@ -24,7 +24,7 @@
 
 @implementation restrictionsView
 
-@synthesize logoImage, topBar, allCollectionView, restrictedCollectionView, menuButton, restrictionsLabel, instructionsLabel;
+@synthesize logoImage, topBar, allCollectionView, restrictedCollectionView, menuButton, restrictionsLabel, instructionsLabel, doneButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +40,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+	if (!delegate || delegate == nil) {
+		delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	}
 	restrictionsLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:18];
 	instructionsLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:15];
 	
@@ -136,11 +139,11 @@
     }
     return number;
 }
-// 2
+
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     return 1;
 }
-// 3
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     dragCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"dragCell" forIndexPath:indexPath];
     switch (collectionView.tag) {
@@ -173,49 +176,52 @@
 }
 
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    
     return delegate.GestureDetect;
 }
 
-- (void)panDetected:(UIPanGestureRecognizer *)panRecognizer//17
-{
-	NSLog(@"panDetected");
+- (void)panDetected:(UIPanGestureRecognizer *)panRecognizer {
     if (panRecognizer.state == UIGestureRecognizerStateBegan) {
 		NSLog(@"UIGestureRecognizerStateBegan");
 		
-        CGPoint tapPoint = [panRecognizer locationInView:self.view];//18
-        self.initialPos = tapPoint.y;//19
-        self.viewCell.backgroundColor = delegate.CellFrame.backgroundColor;//20
-        self.viewCell.center = CGPointMake(tapPoint.x, tapPoint.y);//21
+        CGPoint tapPoint = [panRecognizer locationInView:self.view];
+        self.initialPos = tapPoint.y;
+        self.viewCell.backgroundColor = delegate.CellFrame.backgroundColor;
+		NSLog(@"%@", delegate.cellImage);
+		self.viewCell.imageview.image = delegate.cellImage;
+        self.viewCell.center = CGPointMake(tapPoint.x, tapPoint.y);
     }
     
     if (panRecognizer.state == UIGestureRecognizerStateChanged) {
 		NSLog(@"UIGestureRecognizerStateChanged");
         
-        CGPoint translation = [panRecognizer translationInView:self.view];//22
-        [self.view addSubview:self.viewCell];//23
-        
-        CGPoint imageViewPosition = self.viewCell.center;//24
+        CGPoint translation = [panRecognizer translationInView:self.view];
+        [self.view addSubview:self.viewCell];
+	
+        CGPoint imageViewPosition = self.viewCell.center;
         imageViewPosition.x += translation.x;
         imageViewPosition.y += translation.y;
         
         self.viewCell.center = imageViewPosition;
-        [panRecognizer setTranslation:CGPointZero inView:self.view];//25
+        [panRecognizer setTranslation:CGPointZero inView:self.view];
     }
     
     if (panRecognizer.state == UIGestureRecognizerStateEnded) {
 		NSLog(@"UIGestureRecognizerStateEnded");
 		
-        CGPoint finalPoint = [panRecognizer locationInView:self.view];//26
-        [self changeTheElements:finalPoint.y];//29
+        CGPoint finalPoint = [panRecognizer locationInView:self.view];
+        [self changeTheElements:finalPoint.y];
     }
 }
 
 -(void)changeTheElements:(float)posY
 {
     [self.viewCell removeFromSuperview];
-    if (self.initialPos > self.allCollectionView.frame.size.height & posY < self.allCollectionView.frame.size.height) {
+    if (self.initialPos < 300 & posY >= 350) {
         if ([self.numCells count] != 0) {
+			instructionsLabel.hidden = YES;
+			doneButton.hidden = NO;
+			doneButton.userInteractionEnabled = YES;
+			
             NSString *pass = [self.numCells objectAtIndex:delegate.CellFrame.indexPath];
             [self.numCells removeObjectAtIndex:delegate.CellFrame.indexPath];
             [self.numCells2 addObject:pass];
@@ -223,7 +229,7 @@
             [self.restrictedCollectionView reloadData];
         }
     }
-    if (self.initialPos < self.allCollectionView.frame.size.height & posY > self.allCollectionView.frame.size.height) {
+    if (self.initialPos > 350 & posY < 300) {
         if ([self.numCells2 count] != 0) {
             NSString *pass = [self.numCells2 objectAtIndex:delegate.CellFrame.indexPath];
             [self.numCells2 removeObjectAtIndex:delegate.CellFrame.indexPath];

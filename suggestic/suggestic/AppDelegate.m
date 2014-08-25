@@ -15,11 +15,8 @@
     // Override point for customization after application launch.
     
     self.GestureDetect = NO;
-	for (NSString *familyName in [UIFont familyNames]) {
-        for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
-            NSLog(@"%@", fontName);
-        }
-    }
+	self.cellImage = nil;
+	
     return YES;
 }
 							

@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (weak, nonatomic) IBOutlet UILabel *restrictionsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @end
