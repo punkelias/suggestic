@@ -52,8 +52,6 @@
 		8FA124D519A9689B0002E28D /* twitter_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FA124A619A9689B0002E28D /* twitter_btn.png */; };
 		8FA124D819A97F2D0002E28D /* loginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA124D719A97F2C0002E28D /* loginView.m */; };
 		8FA124DE19A994310002E28D /* restrictionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA124DD19A994310002E28D /* restrictionsView.m */; };
-		8FA124E219AAF5B00002E28D /* dragCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA124E019AAF5B00002E28D /* dragCell.m */; };
-		8FA124E319AAF5B00002E28D /* dragCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA124E119AAF5B00002E28D /* dragCell.xib */; };
 		8FA124E619AB86F50002E28D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA124E519AB86F50002E28D /* QuartzCore.framework */; };
 		8FA124F319AB91630002E28D /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA124E719AB91620002E28D /* Roboto-Black.ttf */; };
 		8FA124F419AB91630002E28D /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA124E819AB91620002E28D /* Roboto-BlackItalic.ttf */; };
@@ -67,6 +65,11 @@
 		8FA124FC19AB91630002E28D /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA124F019AB91630002E28D /* Roboto-Regular.ttf */; };
 		8FA124FD19AB91630002E28D /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA124F119AB91630002E28D /* Roboto-Thin.ttf */; };
 		8FA124FE19AB91630002E28D /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA124F219AB91630002E28D /* Roboto-ThinItalic.ttf */; };
+		8FA1250219ABA3D20002E28D /* dragCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA1250019ABA3D20002E28D /* dragCell.m */; };
+		8FA1250319ABA3D20002E28D /* dragCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA1250119ABA3D20002E28D /* dragCell.xib */; };
+		8FC1799419AD58D2009FFE6F /* likesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1799319AD58D2009FFE6F /* likesView.m */; };
+		8FC1799819AD604D009FFE6F /* scoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1799619AD604D009FFE6F /* scoreCell.m */; };
+		8FC1799919AD604D009FFE6F /* scoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC1799719AD604D009FFE6F /* scoreCell.xib */; };
 		8FCE7E6219A65AC300C110AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE7E6119A65AC300C110AB /* Foundation.framework */; };
 		8FCE7E6419A65AC300C110AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE7E6319A65AC300C110AB /* CoreGraphics.framework */; };
 		8FCE7E6619A65AC300C110AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE7E6519A65AC300C110AB /* UIKit.framework */; };
@@ -142,9 +145,6 @@
 		8FA124D719A97F2C0002E28D /* loginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginView.m; sourceTree = "<group>"; };
 		8FA124DC19A994310002E28D /* restrictionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = restrictionsView.h; sourceTree = "<group>"; };
 		8FA124DD19A994310002E28D /* restrictionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = restrictionsView.m; sourceTree = "<group>"; };
-		8FA124DF19AAF5AF0002E28D /* dragCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dragCell.h; path = ../../../Downloads/dragCV/dragCV/dragCell.h; sourceTree = "<group>"; };
-		8FA124E019AAF5B00002E28D /* dragCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dragCell.m; path = ../../../Downloads/dragCV/dragCV/dragCell.m; sourceTree = "<group>"; };
-		8FA124E119AAF5B00002E28D /* dragCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = dragCell.xib; path = ../../../Downloads/dragCV/dragCV/dragCell.xib; sourceTree = "<group>"; };
 		8FA124E519AB86F50002E28D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8FA124E719AB91620002E28D /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		8FA124E819AB91620002E28D /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BlackItalic.ttf"; path = "assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -158,6 +158,14 @@
 		8FA124F019AB91630002E28D /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		8FA124F119AB91630002E28D /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		8FA124F219AB91630002E28D /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-ThinItalic.ttf"; path = "assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		8FA124FF19ABA3D20002E28D /* dragCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dragCell.h; sourceTree = "<group>"; };
+		8FA1250019ABA3D20002E28D /* dragCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dragCell.m; sourceTree = "<group>"; };
+		8FA1250119ABA3D20002E28D /* dragCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dragCell.xib; sourceTree = "<group>"; };
+		8FC1799219AD58D2009FFE6F /* likesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = likesView.h; sourceTree = "<group>"; };
+		8FC1799319AD58D2009FFE6F /* likesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = likesView.m; sourceTree = "<group>"; };
+		8FC1799519AD604D009FFE6F /* scoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scoreCell.h; sourceTree = "<group>"; };
+		8FC1799619AD604D009FFE6F /* scoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scoreCell.m; sourceTree = "<group>"; };
+		8FC1799719AD604D009FFE6F /* scoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scoreCell.xib; sourceTree = "<group>"; };
 		8FCE7E5E19A65AC300C110AB /* suggestic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suggestic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FCE7E6119A65AC300C110AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8FCE7E6319A65AC300C110AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,9 +216,12 @@
 		8FA124E419AAF5B60002E28D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				8FA124DF19AAF5AF0002E28D /* dragCell.h */,
-				8FA124E019AAF5B00002E28D /* dragCell.m */,
-				8FA124E119AAF5B00002E28D /* dragCell.xib */,
+				8FA124FF19ABA3D20002E28D /* dragCell.h */,
+				8FA1250019ABA3D20002E28D /* dragCell.m */,
+				8FA1250119ABA3D20002E28D /* dragCell.xib */,
+				8FC1799519AD604D009FFE6F /* scoreCell.h */,
+				8FC1799619AD604D009FFE6F /* scoreCell.m */,
+				8FC1799719AD604D009FFE6F /* scoreCell.xib */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -258,6 +269,8 @@
 				8FA124D719A97F2C0002E28D /* loginView.m */,
 				8FA124DC19A994310002E28D /* restrictionsView.h */,
 				8FA124DD19A994310002E28D /* restrictionsView.m */,
+				8FC1799219AD58D2009FFE6F /* likesView.h */,
+				8FC1799319AD58D2009FFE6F /* likesView.m */,
 				8FCE7E7919A65AC400C110AB /* ViewController.h */,
 				8FCE7E7A19A65AC400C110AB /* ViewController.m */,
 				8FCE7E7C19A65AC400C110AB /* Images.xcassets */,
@@ -430,7 +443,6 @@
 				8FA124C619A9689B0002E28D /* logo_suggestic_inicio.png in Resources */,
 				8FA124BE19A9689B0002E28D /* fav_moni_off.png in Resources */,
 				8FA124AC19A9689B0002E28D /* back_topbar.png in Resources */,
-				8FA124E319AAF5B00002E28D /* dragCell.xib in Resources */,
 				8FA124AE19A9689B0002E28D /* camera_btn.png in Resources */,
 				8FA124CC19A9689B0002E28D /* page_off.png in Resources */,
 				8FA124D019A9689B0002E28D /* pin.png in Resources */,
@@ -467,9 +479,11 @@
 				8FA124C819A9689B0002E28D /* next_btn_inicio.png in Resources */,
 				8FA124D519A9689B0002E28D /* twitter_btn.png in Resources */,
 				8FA124AD19A9689B0002E28D /* back.png in Resources */,
+				8FC1799919AD604D009FFE6F /* scoreCell.xib in Resources */,
 				8FA124D319A9689B0002E28D /* search_top_bar.png in Resources */,
 				8FA124CD19A9689B0002E28D /* page_on.png in Resources */,
 				8FA124C219A9689B0002E28D /* flag_on.png in Resources */,
+				8FA1250319ABA3D20002E28D /* dragCell.xib in Resources */,
 				8FA124F719AB91630002E28D /* Roboto-Italic.ttf in Resources */,
 				8FCE7E7519A65AC400C110AB /* Main_iPhone.storyboard in Resources */,
 				8FA124CF19A9689B0002E28D /* phone.png in Resources */,
@@ -506,10 +520,12 @@
 			files = (
 				8FA124DE19A994310002E28D /* restrictionsView.m in Sources */,
 				8FCE7E7B19A65AC400C110AB /* ViewController.m in Sources */,
+				8FC1799819AD604D009FFE6F /* scoreCell.m in Sources */,
 				8FCE7E7219A65AC300C110AB /* AppDelegate.m in Sources */,
 				8FA124D819A97F2D0002E28D /* loginView.m in Sources */,
 				8FCE7E6E19A65AC300C110AB /* main.m in Sources */,
-				8FA124E219AAF5B00002E28D /* dragCell.m in Sources */,
+				8FA1250219ABA3D20002E28D /* dragCell.m in Sources */,
+				8FC1799419AD58D2009FFE6F /* likesView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

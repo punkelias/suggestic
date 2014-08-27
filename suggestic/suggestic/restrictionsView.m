@@ -181,18 +181,16 @@
 
 - (void)panDetected:(UIPanGestureRecognizer *)panRecognizer {
     if (panRecognizer.state == UIGestureRecognizerStateBegan) {
-		NSLog(@"UIGestureRecognizerStateBegan");
 		
         CGPoint tapPoint = [panRecognizer locationInView:self.view];
         self.initialPos = tapPoint.y;
         self.viewCell.backgroundColor = delegate.CellFrame.backgroundColor;
-		NSLog(@"%@", delegate.cellImage);
+		
 		self.viewCell.imageview.image = delegate.cellImage;
         self.viewCell.center = CGPointMake(tapPoint.x, tapPoint.y);
     }
     
     if (panRecognizer.state == UIGestureRecognizerStateChanged) {
-		NSLog(@"UIGestureRecognizerStateChanged");
         
         CGPoint translation = [panRecognizer translationInView:self.view];
         [self.view addSubview:self.viewCell];
@@ -206,7 +204,6 @@
     }
     
     if (panRecognizer.state == UIGestureRecognizerStateEnded) {
-		NSLog(@"UIGestureRecognizerStateEnded");
 		
         CGPoint finalPoint = [panRecognizer locationInView:self.view];
         [self changeTheElements:finalPoint.y];

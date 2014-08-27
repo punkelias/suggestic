@@ -16,5 +16,6 @@
 @property (nonatomic, retain) dragCell *CellFrame;
 @property (nonatomic, retain) UIImage *cellImage;
 @property (nonatomic) BOOL GestureDetect;
+@property (nonatomic) int likesCount;
 
 @end

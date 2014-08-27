@@ -16,6 +16,7 @@
     
     self.GestureDetect = NO;
 	self.cellImage = nil;
+	self.likesCount = 0;
 	
     return YES;
 }
