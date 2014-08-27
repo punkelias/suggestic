@@ -48,6 +48,9 @@
 	collectionView.dataSource = self;
 	
 	[collectionView registerNib:[UINib nibWithNibName:@"scoreCell" bundle:nil] forCellWithReuseIdentifier:@"scoreCell"];
+    
+    self.navigationController.navigationBar.hidden = YES;
+	self.navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,6 +92,11 @@
 -(void)likesCountReached {
 	fadeLabel.hidden = NO;
 	thankYouView.hidden = NO;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 @end

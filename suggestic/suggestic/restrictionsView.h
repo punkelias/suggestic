@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface restrictionsView : ViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout , UIGestureRecognizerDelegate>
+@interface restrictionsView : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout , UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 @property (weak, nonatomic) IBOutlet UILabel *topBar;

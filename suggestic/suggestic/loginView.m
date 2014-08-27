@@ -33,6 +33,9 @@
 	
 	passwordField.secureTextEntry = YES;
 	repeatField.secureTextEntry = YES;
+    
+    self.navigationController.navigationBar.hidden = YES;
+	self.navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 
 }
 

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface likesView : ViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
+@interface likesView : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
 	NSMutableArray * numCells;
 }
 

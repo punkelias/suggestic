@@ -70,6 +70,9 @@
     [self.view addGestureRecognizer:panRecognizer];
     
     panRecognizer.delegate = self;
+    
+    self.navigationController.navigationBar.hidden = YES;
+	self.navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	
 	[self animatedEnter];
 }
@@ -235,6 +238,11 @@
             [self.allCollectionView reloadData];
         }
     }
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 @end
