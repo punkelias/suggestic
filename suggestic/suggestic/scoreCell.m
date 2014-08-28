@@ -66,6 +66,7 @@
 	}
 	
 	cell.backgroundColor = [UIColor clearColor];
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
     return cell;
 }
@@ -80,6 +81,13 @@
 	if (delegate.likesCount >= 10) {
 		[myView likesCountReached];
 	}
+}
+
+-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
+	
+	return indexPath;
 }
 
 @end

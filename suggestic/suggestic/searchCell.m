@@ -10,28 +10,21 @@
 
 @implementation searchCell
 
-@synthesize foodImage, foodName, restaurantName, detailsButton;
+@synthesize foodImage, foodName, restaurantName, detailsButton, makeItBig, bigFoodImage;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-		foodName.font = [UIFont fontWithName:@"Roboto-Regular" size:15];
+		foodName.font = [UIFont fontWithName:@"Roboto-Bold" size:15];
 		restaurantName.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
 		detailsButton.hidden = YES;
 		detailsButton.userInteractionEnabled = NO;
-		NSLog(@"TEST");
+		makeItBig = NO;
+		bigFoodImage.hidden = YES;
     }
     return self;
-}
-
--(void)initCell {
-	
-}
-
--(void)setMyFoodImage:(UIImage*)image {
-	foodImage.image = image;
 }
 
 - (void)awakeFromNib
@@ -41,6 +34,8 @@
 	restaurantName.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
 	detailsButton.hidden = YES;
 	detailsButton.userInteractionEnabled = NO;
+	makeItBig = NO;
+	bigFoodImage.hidden = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -50,16 +45,9 @@
     // Configure the view for the selected state
 }
 
--(void)zoomCell {
-	detailsButton.hidden = NO;
-	detailsButton.userInteractionEnabled = YES;
-	foodImage.frame = CGRectMake(foodImage.frame.origin.x, foodImage.frame.origin.y, foodImage.frame.size.width, 175);
-}
-
--(void)unzoomCell {
-	detailsButton.hidden = YES;
-	detailsButton.userInteractionEnabled = NO;
-	foodImage.frame = CGRectMake(foodImage.frame.origin.x, foodImage.frame.origin.y, foodImage.frame.size.width, 88);
+-(void)changeImageViewWith:(NSString*)imageName {
+	
+	bigFoodImage.image = [UIImage imageNamed:imageName];
 }
 
 @end

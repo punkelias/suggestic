@@ -13,11 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *foodName;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantName;
 @property (weak, nonatomic) IBOutlet UIImageView *foodImage;
+@property (weak, nonatomic) IBOutlet UIImageView *bigFoodImage;
 @property (weak, nonatomic) IBOutlet UIButton *detailsButton;
+@property (nonatomic) bool makeItBig;
 
--(void)initCell;
--(void)setMyFoodImage:(UIImage*)image;
--(void)zoomCell;
--(void)unzoomCell;
+-(void)changeImageViewWith:(NSString*)imageName;
 
 @end

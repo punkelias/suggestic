@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "searchCell.h"
 
 @interface searchView : UIViewController <UITableViewDataSource, UITableViewDelegate> {
 	NSMutableArray * numCells;
 	NSMutableArray * bigNumCells;
 	UITableView * selectedTableView;
-	NSIndexPath * selectedIndexPath;
+	int selectedIndexPathRow;
+	searchCell * currentCell;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *favoritesTable;
@@ -24,7 +26,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *bestForYouButton;
 @property (weak, nonatomic) IBOutlet UIButton *budgetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoritesButton;
+@property (weak, nonatomic) IBOutlet UIView *socialView;
+@property (weak, nonatomic) IBOutlet UIView *tablesView;
+@property (weak, nonatomic) IBOutlet UIScrollView *buttonsScroll;
 
 -(IBAction)changeTable:(id)sender;
+-(IBAction)clickOnTable:(id)sender;
 
 @end

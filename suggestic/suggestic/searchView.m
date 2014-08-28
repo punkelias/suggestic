@@ -7,7 +7,6 @@
 //
 
 #import "searchView.h"
-#import "searchCell.h"
 
 @interface searchView ()
 
@@ -15,7 +14,7 @@
 
 @implementation searchView
 
-@synthesize pamperMeTable, bestForYouTable, budgetTable, favoritesTable, addFriendLabel, pamperMeButton, bestForYouButton, budgetButton, favoritesButton;
+@synthesize pamperMeTable, bestForYouTable, budgetTable, favoritesTable, addFriendLabel, pamperMeButton, bestForYouButton, budgetButton, favoritesButton, socialView, tablesView, buttonsScroll;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,6 +56,8 @@
     
     self.navigationController.navigationBar.hidden = YES;
 	self.navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+	
+	buttonsScroll.contentSize = CGSizeMake(450, buttonsScroll.contentSize.height);
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,48 +125,60 @@
 	
 	cell.detailsButton.hidden = YES;
 	cell.detailsButton.userInteractionEnabled = NO;
-	
 	cell.foodImage.image = [UIImage imageNamed:[numCells objectAtIndex:indexPath.row]];
-	
-	if (indexPath.row == selectedIndexPath.row) {
-		[cell zoomCell];
-	} else {
-		[cell unzoomCell];
-	}
+	cell.bigFoodImage.image = [UIImage imageNamed:[bigNumCells objectAtIndex:indexPath.row]];
+	[cell changeImageViewWith:[bigNumCells objectAtIndex:indexPath.row]];
+	cell.bigFoodImage.hidden = YES;
+//	cell.imageView.image = [UIImage imageNamed:[bigNumCells objectAtIndex:indexPath.row]];
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (selectedIndexPath.row == indexPath.row) {
-		return 175;
+	if (currentCell != nil) {
+		if (indexPath.row == selectedIndexPathRow) {
+			return 175;
+		} else {
+			return 88;
+		}
 	} else {
 		return 88;
 	}
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	searchCell * oldCell = (searchCell*)[selectedTableView cellForRowAtIndexPath:selectedIndexPath];
 	
-	oldCell.foodImage.image = [UIImage imageNamed:[numCells objectAtIndex:indexPath.row]];
-	oldCell.detailsButton.hidden = YES;
-	oldCell.detailsButton.userInteractionEnabled = NO;
-	oldCell.foodImage.frame = CGRectMake(oldCell.foodImage.frame.origin.x, oldCell.foodImage.frame.origin.y, oldCell.foodImage.frame.size.width, 88);
 	
-	[oldCell unzoomCell];
 	
-	selectedIndexPath = indexPath;
+}
+
+-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (currentCell != nil) {
+		currentCell.makeItBig = NO;
+		currentCell.foodImage.hidden = NO;
+		currentCell.bigFoodImage.hidden = YES;
+	}
 	
-	[selectedTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-	searchCell * cell = (searchCell*)[selectedTableView cellForRowAtIndexPath:indexPath];
+	currentCell = (searchCell*)[tableView cellForRowAtIndexPath:indexPath];
+	currentCell.foodImage.hidden = YES;
+	currentCell.bigFoodImage.hidden = NO;
+	NSLog(@"IMV %@, IMAGEN %@", currentCell.bigFoodImage, currentCell.bigFoodImage.image );
 	
-	cell.foodImage.image = [UIImage imageNamed:[bigNumCells objectAtIndex:indexPath.row]];
+	selectedIndexPathRow = indexPath.row;
 	
-	cell.foodImage.frame = CGRectMake(cell.foodImage.frame.origin.x, cell.foodImage.frame.origin.y, cell.foodImage.frame.size.width, 175);
-				
-	[cell zoomCell];
+	tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, 488);
 	
-	[selectedTableView reloadData];
+	[UIView animateWithDuration:0.25f
+						  delay: 0.15f
+						options: UIViewAnimationOptionCurveLinear
+					 animations:^{
+						 [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+						 [tableView reloadData];
+					 }
+					 completion:nil];
+	
+	return indexPath;
 }
 
 
@@ -181,8 +194,15 @@
 			budgetButton.alpha = 0.5;
 			favoritesButton.alpha = 0.5;
 			
+			[UIView animateWithDuration:0.25f
+								  delay: 0.15f
+								options: UIViewAnimationOptionCurveLinear
+							 animations:^{
+								 pamperMeTable.hidden = NO;
+							 }
+							 completion:nil];
+			
 			selectedTableView = pamperMeTable;
-			pamperMeTable.hidden = NO;
 			pamperMeTable.userInteractionEnabled = YES;
 			bestForYouTable.hidden = YES;
 			bestForYouTable.userInteractionEnabled = NO;
@@ -197,10 +217,17 @@
 			budgetButton.alpha = 0.5;
 			favoritesButton.alpha = 0.5;
 			
+			[UIView animateWithDuration:0.25f
+								  delay: 0.15f
+								options: UIViewAnimationOptionCurveLinear
+							 animations:^{
+								 bestForYouTable.hidden = NO;
+							 }
+							 completion:nil];
+			
 			selectedTableView = bestForYouTable;
 			pamperMeTable.hidden = YES;
 			pamperMeTable.userInteractionEnabled = NO;
-			bestForYouTable.hidden = NO;
 			bestForYouTable.userInteractionEnabled = YES;
 			budgetTable.hidden = YES;
 			budgetTable.userInteractionEnabled = NO;
@@ -213,12 +240,19 @@
 			budgetButton.alpha = 1;
 			favoritesButton.alpha = 0.5;
 			
+			[UIView animateWithDuration:0.25f
+								  delay: 0.15f
+								options: UIViewAnimationOptionCurveLinear
+							 animations:^{
+								 budgetTable.hidden = NO;
+							 }
+							 completion:nil];
+			
 			selectedTableView = budgetTable;
 			pamperMeTable.hidden = YES;
 			pamperMeTable.userInteractionEnabled = NO;
 			bestForYouTable.hidden = YES;
 			bestForYouTable.userInteractionEnabled = NO;
-			budgetTable.hidden = NO;
 			budgetTable.userInteractionEnabled = YES;
 			favoritesTable.hidden = YES;
 			favoritesTable.userInteractionEnabled = NO;
@@ -229,6 +263,14 @@
 			budgetButton.alpha = 0.5;
 			favoritesButton.alpha = 1;
 			
+			[UIView animateWithDuration:0.25f
+								  delay: 0.15f
+								options: UIViewAnimationOptionCurveLinear
+							 animations:^{
+								 favoritesTable.hidden = NO;
+							 }
+							 completion:nil];
+			
 			selectedTableView = favoritesTable;
 			pamperMeTable.hidden = YES;
 			pamperMeTable.userInteractionEnabled = NO;
@@ -236,12 +278,38 @@
 			bestForYouTable.userInteractionEnabled = NO;
 			budgetTable.hidden = YES;
 			budgetTable.userInteractionEnabled = NO;
-			favoritesTable.hidden = NO;
 			favoritesTable.userInteractionEnabled = YES;
 		} break;
 		default:
 			break;
 	}
+}
+
+-(void)clickOnTable:(id)sender {
+	UIButton * senderButton = sender;
+	senderButton.hidden = YES;
+	senderButton.userInteractionEnabled = NO;
+	
+	[UIView animateWithDuration:0.5f
+						  delay: 0.15f
+						options: UIViewAnimationOptionCurveLinear
+					 animations:^{
+						 socialView.frame = CGRectMake(socialView.frame.origin.x, socialView.frame.origin.y - 143, socialView.frame.size.width, socialView.frame.size.height);
+						 tablesView.frame = CGRectMake(tablesView.frame.origin.x, 42, tablesView.frame.size.width, tablesView.frame.size.height + 143);
+						
+					 }
+					 completion:^(BOOL finished){
+						 [UIView animateWithDuration:0.25f
+										  animations:^{
+											  pamperMeTable.frame = CGRectMake(pamperMeTable.frame.origin.x, pamperMeTable.frame.origin.y, pamperMeTable.frame.size.width, pamperMeTable.frame.size.height + 143);
+											  bestForYouTable.frame = CGRectMake(bestForYouTable.frame.origin.x, bestForYouTable.frame.origin.y, bestForYouTable.frame.size.width, bestForYouTable.frame.size.height + 143);
+											  budgetTable.frame = CGRectMake(budgetTable.frame.origin.x, budgetTable.frame.origin.y, budgetTable.frame.size.width, budgetTable.frame.size.height + 143);
+											  favoritesTable.frame = CGRectMake(favoritesTable.frame.origin.x, favoritesTable.frame.origin.y, favoritesTable.frame.size.width, favoritesTable.frame.size.height + 143);
+										  }
+										  completion:nil];
+					 }];
+	
+	[selectedTableView reloadData];
 }
 
 - (BOOL)prefersStatusBarHidden
