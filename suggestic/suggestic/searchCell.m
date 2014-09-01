@@ -10,7 +10,7 @@
 
 @implementation searchCell
 
-@synthesize foodImage, foodName, restaurantName, detailsButton, makeItBig, bigFoodImage;
+@synthesize foodImage, foodName, restaurantName, detailsButton, makeItBig, bigFoodImage, myView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -48,6 +48,13 @@
 -(void)changeImageViewWith:(NSString*)imageName {
 	
 	bigFoodImage.image = [UIImage imageNamed:imageName];
+}
+
+-(void)goToDetails {
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+	
+    UIViewController * otherViewController = [storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
+	[myView.navigationController pushViewController:otherViewController animated:YES];
 }
 
 @end

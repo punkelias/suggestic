@@ -21,6 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *thankYouMessage;
 
 -(void)likesCountReached;
-
+-(IBAction)goBack:(id)sender;
 
 @end

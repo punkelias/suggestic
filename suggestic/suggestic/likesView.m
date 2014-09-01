@@ -60,7 +60,6 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)theCollectionView numberOfItemsInSection:(NSInteger)theSectionIndex {
-    
     return 20;
 }
 
@@ -97,6 +96,10 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+-(void)goBack:(id)sender {
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

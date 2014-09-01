@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIView *socialView;
 @property (weak, nonatomic) IBOutlet UIView *tablesView;
 @property (weak, nonatomic) IBOutlet UIScrollView *buttonsScroll;
+@property (weak, nonatomic) IBOutlet UIView *tablesContainer;
 
 -(IBAction)changeTable:(id)sender;
 -(IBAction)clickOnTable:(id)sender;

@@ -16,7 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bigFoodImage;
 @property (weak, nonatomic) IBOutlet UIButton *detailsButton;
 @property (nonatomic) bool makeItBig;
+@property (weak, nonatomic) UIViewController * myView;
 
 -(void)changeImageViewWith:(NSString*)imageName;
+-(IBAction)goToDetails;
 
 @end
