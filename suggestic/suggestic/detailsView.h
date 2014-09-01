@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *soupsCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *drinksCollectionView;
 @property (weak, nonatomic) IBOutlet UIScrollView *collectionsContainer;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 -(IBAction)changeTable:(id)sender;
 -(IBAction)goBack:(id)sender;

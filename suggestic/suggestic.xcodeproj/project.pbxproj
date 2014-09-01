@@ -89,6 +89,7 @@
 		8FC1799419AD58D2009FFE6F /* likesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1799319AD58D2009FFE6F /* likesView.m */; };
 		8FC1799819AD604D009FFE6F /* scoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1799619AD604D009FFE6F /* scoreCell.m */; };
 		8FC1799919AD604D009FFE6F /* scoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FC1799719AD604D009FFE6F /* scoreCell.xib */; };
+		8FC7C41319B49687005D3A45 /* viewMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC7C41219B49687005D3A45 /* viewMenuView.m */; };
 		8FCE7E6219A65AC300C110AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE7E6119A65AC300C110AB /* Foundation.framework */; };
 		8FCE7E6419A65AC300C110AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE7E6319A65AC300C110AB /* CoreGraphics.framework */; };
 		8FCE7E6619A65AC300C110AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE7E6519A65AC300C110AB /* UIKit.framework */; };
@@ -217,6 +218,8 @@
 		8FC1799519AD604D009FFE6F /* scoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scoreCell.h; sourceTree = "<group>"; };
 		8FC1799619AD604D009FFE6F /* scoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scoreCell.m; sourceTree = "<group>"; };
 		8FC1799719AD604D009FFE6F /* scoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scoreCell.xib; sourceTree = "<group>"; };
+		8FC7C41119B49687005D3A45 /* viewMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewMenuView.h; sourceTree = "<group>"; };
+		8FC7C41219B49687005D3A45 /* viewMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewMenuView.m; sourceTree = "<group>"; };
 		8FCE7E5E19A65AC300C110AB /* suggestic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suggestic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FCE7E6119A65AC300C110AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8FCE7E6319A65AC300C110AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -341,6 +344,8 @@
 				8F8F02E919AE3A0B00C84692 /* searchView.m */,
 				8F8837D419B2ADBE00261E60 /* detailsView.h */,
 				8F8837D519B2ADBE00261E60 /* detailsView.m */,
+				8FC7C41119B49687005D3A45 /* viewMenuView.h */,
+				8FC7C41219B49687005D3A45 /* viewMenuView.m */,
 				8FCE7E7919A65AC400C110AB /* ViewController.h */,
 				8FCE7E7A19A65AC400C110AB /* ViewController.m */,
 				8FCE7E7C19A65AC400C110AB /* Images.xcassets */,
@@ -649,6 +654,7 @@
 				8FA1250219ABA3D20002E28D /* dragCell.m in Sources */,
 				8F8F02EA19AE3A0B00C84692 /* searchView.m in Sources */,
 				8FF016B519B40DB600300043 /* detailsCell.m in Sources */,
+				8FC7C41319B49687005D3A45 /* viewMenuView.m in Sources */,
 				8FC1799419AD58D2009FFE6F /* likesView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

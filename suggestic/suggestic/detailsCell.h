@@ -18,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *ingredient3;
 @property (weak, nonatomic) IBOutlet UILabel *ingredient4;
 
+@property (nonatomic) int indexPath;
+
+-(void)initGestures;
+
 -(void)initCell;
 
 @end

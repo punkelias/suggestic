@@ -16,7 +16,7 @@
 
 @implementation detailsView
 
-@synthesize buttonsScroll, dessertsButton, saladsButton, mainCourseButton, soupsButton, drinksButton, nameLabel, adressLabel, phoneLabel, reservationButton, viewMenuButton, dessertsCollection, saladsCollectionView, collectionsContainer, mainCourseCollectionView, soupsCollectionView, drinksCollectionView;
+@synthesize buttonsScroll, dessertsButton, saladsButton, mainCourseButton, soupsButton, drinksButton, nameLabel, adressLabel, phoneLabel, reservationButton, viewMenuButton, dessertsCollection, saladsCollectionView, collectionsContainer, mainCourseCollectionView, soupsCollectionView, drinksCollectionView, titleLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +41,7 @@
 	nameLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:18];
 	adressLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:15];
 	phoneLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:15];
+	titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:18];
 	
 	dessertsCollection.delegate = self;
 	dessertsCollection.dataSource = self;
@@ -73,6 +74,7 @@
     self.navigationController.navigationBar.hidden = YES;
 	self.navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 }
+
 - (void) SwipeRecognizer:(UISwipeGestureRecognizer *)sender {
     if ( sender.direction == UISwipeGestureRecognizerDirectionLeft ){
         if (selectedIndex < 4) {
