@@ -30,6 +30,15 @@
 @property (weak, nonatomic) IBOutlet UIView *tablesView;
 @property (weak, nonatomic) IBOutlet UIScrollView *buttonsScroll;
 @property (weak, nonatomic) IBOutlet UIView *tablesContainer;
+@property (weak, nonatomic) IBOutlet UIButton *friendButton1;
+@property (weak, nonatomic) IBOutlet UIButton *friendButton2;
+@property (weak, nonatomic) IBOutlet UIButton *friendButton3;
+@property (weak, nonatomic) IBOutlet UIButton *friendButton4;
+@property (weak, nonatomic) IBOutlet UIButton *chosenFriend1;
+@property (weak, nonatomic) IBOutlet UIButton *chosenFriend2;
+@property (weak, nonatomic) IBOutlet UIButton *chosenFriend3;
+
+@property (nonatomic) int friendsChosen;
 
 -(IBAction)changeTable:(id)sender;
 -(IBAction)clickOnTable:(id)sender;

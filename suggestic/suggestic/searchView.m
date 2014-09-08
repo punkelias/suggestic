@@ -14,7 +14,7 @@
 
 @implementation searchView
 
-@synthesize pamperMeTable, bestForYouTable, budgetTable, favoritesTable, addFriendLabel, pamperMeButton, bestForYouButton, budgetButton, favoritesButton, socialView, tablesView, buttonsScroll, tablesContainer;
+@synthesize pamperMeTable, bestForYouTable, budgetTable, favoritesTable, addFriendLabel, pamperMeButton, bestForYouButton, budgetButton, favoritesButton, socialView, tablesView, buttonsScroll, tablesContainer, friendsChosen, friendButton1, friendButton2, friendButton3, friendButton4, chosenFriend1, chosenFriend2, chosenFriend3;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,6 +58,35 @@
 	self.navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	
 	buttonsScroll.contentSize = CGSizeMake(450, buttonsScroll.contentSize.height);
+	
+	if (friendsChosen > 0) {
+		if (friendsChosen >= 1) {
+			[friendButton1 setBackgroundImage:[UIImage imageNamed:@"facebook_male"] forState:UIControlStateNormal];
+		}
+		
+		if (friendsChosen >= 2) {
+			[friendButton2 setBackgroundImage:[UIImage imageNamed:@"facebook_female"] forState:UIControlStateNormal];
+		}
+		
+		if (friendsChosen >= 3) {
+			[friendButton3 setBackgroundImage:[UIImage imageNamed:@"facebook_male"] forState:UIControlStateNormal];
+		}
+		
+		if (friendsChosen >= 4) {
+			[friendButton4 setBackgroundImage:[UIImage imageNamed:@"facebook_female"] forState:UIControlStateNormal];
+		}
+	} else {
+		[friendButton1 setBackgroundImage:[UIImage imageNamed:@"fabebook_btn"] forState:UIControlStateNormal];
+		[friendButton2 setBackgroundImage:[UIImage imageNamed:@"phone_btn"] forState:UIControlStateNormal];
+		[friendButton3 setBackgroundImage:[UIImage imageNamed:@"twitter_btn"] forState:UIControlStateNormal];
+		[friendButton4 setBackgroundImage:[UIImage imageNamed:@"close_btn"] forState:UIControlStateNormal];
+	}
+	
+	chosenFriend1.userInteractionEnabled = NO;
+	chosenFriend2.hidden = YES;
+	chosenFriend2.userInteractionEnabled = NO;
+	chosenFriend3.hidden = YES;
+	chosenFriend3.userInteractionEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning
